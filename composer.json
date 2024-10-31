@@ -2,7 +2,7 @@
     "name": "amirrh6/simpleslug",
     "description": "SimpleSlug is a straightforward PHP library designed to help you generate amusing and meaningful combinations.",
     "type": "library",
-    "license": "GPL v2",
+    "license": "GPL-2.0-only",
     "version": "0.1.0",
     "autoload": {
         "psr-4": {

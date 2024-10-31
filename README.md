@@ -1,11 +1,17 @@
 # SimpleSlug
 
-What a clever name! SimpleSlug is a straightforward PHP library designed to help you generate amusing and meaningful combinations.
+SimpleSlug is a straightforward PHP library designed to help you generate amusing and meaningful combinations.
 
-It's advisable not to expose the primary keys of your database records.
-Tired of generating random strings (like 'q8s46k0') for tickets in your database?
+It's advisable not to expose the primary keys of your database records, So you may try generating random strings (like 'q8s46k0') for tickets in your database. There may be a better option.
 
 SimpleSlug can create a catchy slug such as 'gigantic flat dog' for you, making it much easier to spot.
+
+Use Github Issues for comments, bug reports and questions.
+
+## Installation:
+`composer require amirrh6/simpleslug`
+
+## Usage:
 
 ```php
 <?php
@@ -32,3 +38,6 @@ massive paper door
 amazing cleaning violin
 */
 ```
+## License:
+
+[GPL 2.0 only](https://spdx.org/licenses/GPL-2.0-only.html)

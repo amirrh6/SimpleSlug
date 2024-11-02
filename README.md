@@ -1,10 +1,8 @@
 # SimpleSlug
 
-SimpleSlug is a straightforward PHP library designed to help you generate amusing and meaningful combinations.
+SimpleSlug is an easy-to-use PHP library that allows you to create random, entertaining, and occasionally meaningful slugs (combinations).
 
-It's advisable not to expose the primary keys of your database records, So you may try generating random strings (like 'q8s46k0') for tickets in your database. There may be a better option.
-
-SimpleSlug can create a catchy slug such as 'gigantic flat dog' for you, making it much easier to spot.
+Say goodbye to random strings like 'q8s46k0' and hello to catchy slugs like 'gigantic flat dog,' making them much easier to recognize.
 
 Use Github Issues for comments, bug reports and questions.
 
@@ -18,24 +16,24 @@ Use Github Issues for comments, bug reports and questions.
 
 require_once 'vendor/autoload.php';
 
-$simpleSlug = new SimpleSlug\Engine(lower_case_every_word: true);
-for ($x = 0; $x < 10; $x++) {
-    print_r($simpleSlug->generate() . "\n");
+$simpleSlug = new SimpleSlug\Engine(words_count: 3, capitalize_the_first_word: true);
+
+for ($x = 0; $x < 5; $x++) {
+    if ($x == 1) {
+        print_r($simpleSlug->generate(words_count: 4) . "\n");
+    } else {
+        print_r($simpleSlug->generate() . "\n");
+    }
 }
 
 /*
 // May output something similar to:
 
-trustworthy cleaning doll
-tall canadian puppy
-furious vintage dog
-delicious cotton box
-gigantic flat dog
-gigantic wooden bus
-clumsy vintage rabbit
-flexible delicious human
-massive paper door
-amazing cleaning violin
+Cubic African rabbit
+Flat yellow Italian fox
+Curious blue lamp
+Italian traveling cat
+American leather cat
 */
 ```
 ## License:

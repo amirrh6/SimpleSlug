@@ -2,22 +2,22 @@
 
 require_once 'vendor/autoload.php';
 
-$simpleSlug = new SimpleSlug\Engine(lower_case_every_word: true);
-for ($x = 0; $x < 10; $x++) {
-    print_r($simpleSlug->generate() . "\n");
+$simpleSlug = new SimpleSlug\Engine(words_count: 3, capitalize_the_first_word: true);
+
+for ($x = 0; $x < 5; $x++) {
+    if ($x == 1) {
+        print_r($simpleSlug->generate(words_count: 4) . "\n");
+    } else {
+        print_r($simpleSlug->generate() . "\n");
+    }
 }
 
 /*
 // May output something similar to:
 
-trustworthy cleaning doll
-tall canadian puppy
-furious vintage dog
-delicious cotton box
-gigantic flat dog
-gigantic wooden bus
-clumsy vintage rabbit
-flexible delicious human
-massive paper door
-amazing cleaning violin
+Cubic African rabbit
+Flat yellow Italian fox
+Curious blue lamp
+Italian traveling cat
+American leather cat
 */

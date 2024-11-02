@@ -16,7 +16,7 @@ class Engine
      * Purpose or Type: (e.g., sleeping (as in sleeping bag), racing (as in racing car))
      */
 
-    static $quantity_adj = ['one']; // 1
+    static $quantity_adj = ['one', 'the']; // 2
     static $quality_adj = ['beautiful', 'interesting', 'boring', 'furious', 'brave', 'loyal', 'adventurous', 'playful', 'curious', 'flexible', 'angry', 'clumsy', 'amazing', 'fantastic', 'delicious', 'trustworthy']; // 16
     static $size_adj = ['big', 'small', 'tall', 'little', 'tiny', 'massive', 'huge', 'enormous', 'gigantic', 'short']; // 10
     static $age_adj = ['old', 'young', 'new', 'modern', 'recent', 'fresh', 'vintage', 'ancient']; // 8
@@ -28,6 +28,7 @@ class Engine
 
     static $animals = ['cat', 'kitten', 'dragon', 'dog', 'lion', 'husky', 'panda', 'rabbit', 'fox', 'wolf', 'duck', 'mongoose', 'puppy', 'kitty']; // 14
     static $objects = ['rocket', 'car', 'bus', 'guitar', 'violin', 'piano', 'door', 'key', 'box', 'laptop', 'bed', 'lamp', 'printer', 'doll']; // 14
+    static $jobs = ['mechanic', 'pianist', 'guitarist', 'programmer', 'developer', 'plumber', 'employee', 'engineer']; // 8
     static $humans = ['person', 'man', 'woman', 'human']; // 4
 
     // ---
@@ -37,7 +38,7 @@ class Engine
     private $knowns = [];
 
     // Uses constructor property promotion: https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion
-    public function __construct(private bool $lower_case_every_word = false)
+    public function __construct(int $words_count = 3, private bool $capitalize_the_first_word = false)
     {
         $this->adjectives = array_merge(
             static::$quantity_adj,
@@ -53,14 +54,14 @@ class Engine
 
         $this->ordered_adjectives = array_flip($this->adjectives);
 
-        $this->knowns = array_merge(static::$animals, static::$objects, static::$humans);
+        $this->knowns = array_merge(static::$animals, static::$objects, static::$humans, static::$jobs);
 
         if (count($this->knowns) === 0 || count($this->adjectives) === 0) {
             throw new \Exception();
         }
     }
 
-    public function generate(int $words_count = 3)
+    public function generate(int $words_count = 3, bool $capitalize_the_first_word = false): string
     {
         $combination = [];
 
@@ -77,6 +78,12 @@ class Engine
 
         $combination[] = $this->knowns[$r->pickArrayKeys($this->knowns, 1)[0]];
 
-        return $this->lower_case_every_word ? strtolower(implode(' ', $combination)) : implode(' ', $combination);
+        $result = implode(' ', $combination);
+
+        if ($capitalize_the_first_word || $this->capitalize_the_first_word) {
+            $result = ucfirst($result);
+        }
+
+        return $result;
     }
 }

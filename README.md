@@ -4,6 +4,8 @@ SimpleSlug is an easy-to-use PHP library that allows you to create random, enter
 
 Say goodbye to random strings like 'q8s46k0' and hello to catchy slugs like 'gigantic flat dog,' making them much easier to recognize.
 
+SimpleSlug is still in early development stages so expect bugs and non-backward compatible changes.
+
 Use Github Issues for comments, bug reports and questions.
 
 ## Installation:
